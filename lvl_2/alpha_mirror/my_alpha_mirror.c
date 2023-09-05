@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_camel_to_snake.c                                :+:      :+:    :+:   */
+/*   my_alpha_mirror.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 14:52:36 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/05 15:13:15 by nde-la-f         ###   ########.fr       */
+/*   Created: 2023/09/05 14:47:43 by nde-la-f          #+#    #+#             */
+/*   Updated: 2023/09/05 14:49:37 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+int	mirror(char c)
+{
+	if (c >= 'a' && c <= 'z')
+		return ('z' - c + 'a');
+	if (c >= 'A' && c <= 'Z')
+		return ('Z' - c + 'A');
+	return (c);
+}
 
 int	main(int ac, char **av)
 {
@@ -21,15 +30,11 @@ int	main(int ac, char **av)
 	{
 		while (av[1][i])
 		{
-			if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-			{
-				av[1][i] = av[1][i] + 32;
-				write(1, "_", 1);
-				write(1, &av[1][i], 1);
-			}
-			else
-				write(1, &av[1][i], 1);
+			av[1][i] = mirror(av[1][i]);
 			i++;
 		}
 	}
+	write(1, av[1], i);
+	write(1, "\n", 1);
+	return (0);
 }
