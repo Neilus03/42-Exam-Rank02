@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_strcmp.c                                        :+:      :+:    :+:   */
+/*   my_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 16:43:03 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/07 15:07:53 by nde-la-f         ###   ########.fr       */
+/*   Created: 2023/09/07 15:08:36 by nde-la-f          #+#    #+#             */
+/*   Updated: 2023/09/07 15:34:05 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,33 @@
 #include <stdlib.h>
 #include <string.h>
 
-int	ft_strcmp(char *s1, char *s2)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (s1[i] && s2[i])
+	j = 0;
+	while (s[i])
 	{
-		if (s1[i] == s2[i])
-			i ++;
+		j = 0;
+		while (reject[j])
+		{
+			if (s[i] != reject[j])
+				j++;
+			else
+				return (i);
+		}
+		i++;
 	}
-	return (s1[i] - s2[i]);
+	return (i);
 }
-/*
+
 int	main(int ac, char **av)
 {
-	int	res;
-	res = ft_strcmp(av[1], av[2]);
-	printf("%d", res);
+	size_t	res;
+
+	res = ft_strcspn(av[1], av[2]);
+	printf("Result of my strcspn: %zu \n", res);
 	return (0);
 }
-*/
