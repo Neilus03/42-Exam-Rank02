@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-la-f <nde-la-f@student.42barcel>       +#+  +:+       +#+        */
+/*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:43:03 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/05 16:57:18 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/09/07 14:27:09 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
-
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] == s2[i])
@@ -28,11 +27,11 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int res;
+	int	res;
 
 	res = ft_strcmp(av[1], av[2]);
-	printf("%d",res);
+	printf("%d", res);
 	return (0);
 }
