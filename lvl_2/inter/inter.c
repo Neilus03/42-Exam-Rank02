@@ -1,51 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_strrev.c                                        :+:      :+:    :+:   */
+/*   inter.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/07 16:06:56 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/07 17:09:26 by nde-la-f         ###   ########.fr       */
+/*   Created: 2023/09/07 17:11:40 by nde-la-f          #+#    #+#             */
+/*   Updated: 2023/09/07 17:20:14 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
-char	*ft_strrev(char *str)
+int	iter(char *str, char c, int len)
 {
-	int		i;
-	int		j;
-	char	*aux;
+	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	aux = (char *)malloc(sizeof(char) * (i + 1));
-	j = 0;
-	while (str[j])
-	{
-		aux[i - 1] = str[j];
-		j++;
-		i--;
-	}
-	i = 0;
-	while (aux[i])
-	{
-		str[i] = aux[i];
-		i++;
-	}
-	str[i] = '\0';
-	free(aux);
-	return (str);
+	while (str[i] && (i < len || len == -1))
+		if (str[i++] == c)
+			return (1);
+	return (0);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	char	s[] = "holaa";
+	int	i;
 
-	printf("%s", ft_strrev(s));
+	if (argc == 3)
+	{
+		i = 0;
+		while (argv[1][i])
+		{
+			if (!iter(argv[1], argv[1][i], i) && iter(argv[2], argv[1][i], -1))
+				write(1, &argv[1][i], 1);
+			i += 1;
+		}
+	}
+	write(1, "\n", 1);
 	return (0);
 }

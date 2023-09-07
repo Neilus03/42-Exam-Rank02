@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nde-la-f <nde-la-f@student.42barcel>       +#+  +:+       +#+        */
+/*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:05:31 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/05 16:27:13 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:13:00 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int	ft_atoi(const char *str)
 		{
 			res = res * 10 + str[i] - '0';
 			i++;
-		}	
+		}
 	}
 	return (sign * res);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	printf("My atoi: %d \n", ft_atoi(av[1]));
 	printf("Original atoi: %d \n", atoi(av[1]));
