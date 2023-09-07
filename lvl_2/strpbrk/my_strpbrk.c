@@ -6,7 +6,7 @@
 /*   By: nde-la-f <nde-la-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:54:05 by nde-la-f          #+#    #+#             */
-/*   Updated: 2023/09/07 16:03:01 by nde-la-f         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:07:24 by nde-la-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,14 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 		while (s2[i])
 		{
 			if (*s1 == s2[i])
-				return (char *)s1;
+				return ((char *)s1);
 			i++;
 		}
 		s1++;
 	}
 	return (NULL);
 }
-
-
-// Your ft_strpbrk function here
-
+/*
 int main(void)
 {
     const char *s1 = "This is a test string.";
@@ -58,3 +55,4 @@ int main(void)
 
     return 0;
 }
+*/
