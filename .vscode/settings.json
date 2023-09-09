@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"MLTable": "yaml",
-		"string.h": "c",
-		"stdio.h": "c",
-		"stdlib.h": "c"
-	}
-}
